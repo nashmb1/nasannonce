@@ -1,0 +1,29 @@
+{# src/NAS/CoreBundle/Resources/views/Home/home.html.twig #}
+
+{% extends "NASCoreBundle::layout.html.twig" %}
+
+{% block title %}
+  Page d'accueil-{{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+  <h2>Les dernières annonces</h2>
+     {% for message in app.session.flashbag.get('info') %}
+        <p>Message flash : {{ message }}</p>
+      {% endfor %}
+  <ul>
+    {% for advert in listAdverts %}
+      <li>
+        <a href="{{ path('oc_platform_view', {'id': advert.id}) }}">
+          {{ advert.title }}
+        </a>
+        par {{ advert.author }},
+        le {{ advert.date|date('d/m/Y') }}
+      </li>
+    {% else %}
+      <li>Pas (encore !) d'annonces</li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

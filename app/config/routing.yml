@@ -1,0 +1,8 @@
+nas_core:
+    resource: "@NASCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+oc_platform:
+    resource: "@OCPlatformBundle/Resources/config/routing.yml"
+    prefix:   /platform
+
