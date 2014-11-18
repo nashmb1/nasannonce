@@ -1,0 +1,64 @@
+header{
+    background-color: #4a8541;
+    height: 100px;
+    top:10px;
+    width: auto;
+}
+.tete{
+    width:800px;
+    margin:auto;
+    text-align:center;
+}
+header img {
+    width: 200px;
+    height: 100px;
+    margin: auto;
+}
+
+#navigation { /*conteneur du menu*/
+    padding: 0;
+    clear:both;
+    width:auto;
+    height:51px;
+    background: #333;
+    border: solid 1px #666;
+}
+
+ul.nav-main li { /*règles générales des items de liste */
+    list-style: none;
+    margin: 0;
+    border-right:solid 1px #666;
+}
+
+ul.nav-main { /*règles des items principaux*/
+    position: relative;
+    z-index: 597;
+}
+
+ul.nav-main li:hover { /*design des items de liste au survol*/
+    position: relative;
+    z-index: 599;
+    cursor: pointer;
+    background: #666;
+}
+
+ul.nav-main li { /*positionnement, dimensions, couleurs et textes des items de liste*/
+    float:left;
+    display:block;
+    height: 51px;
+    color: #999;
+    font: 14px Arial, Helvetica, sans-serif;
+}
+
+ul.nav-main li a { /*positionnement, dimensions, couleurs et textes des items de liste intégrant une redirection url*/
+    display: block;
+    padding: 16px 16px 0 16px;
+    height: 35px;
+    color: #999;
+    font: 14px Arial, Helvetica, sans-serif;
+    text-decoration:none;
+}
+
+
+
+
