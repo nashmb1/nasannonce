@@ -35,4 +35,4 @@ set :dump_assetic_assets, true # dumper les assets
 logger.level = Logger::MAX_LEVEL
  
 #Update database Doctrine
-before "symfony:cache:warmup", "symfony:doctrine:schema:update"
+before "symfony:cache:warmup", "symfony:doctrine:schema:update", "symfony:doctrine:fixtures:load"

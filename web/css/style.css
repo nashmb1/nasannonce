@@ -1,5 +1,18 @@
+
+.inline-form input {
+  display: inline-block;
+  width: 100px;
+}
+.couleur-grise{
+	background-color: #f5f5f5;
+}
+.couleur-verte{
+	background-color: #1d5c49;
+}
+
+/*fin utile*/
 header{
-    background-color: #4a8541;
+    background-color: #1d5c49; /*#4a8541;*/
     height: 100px;
     top:10px;
     width: auto;
