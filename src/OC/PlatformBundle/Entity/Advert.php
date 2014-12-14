@@ -6,6 +6,8 @@ namespace OC\PlatformBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
+use OC\PlatformBundle\Validator\Antiflood;
 
 /**
  * @ORM\Table(name = "nas_advert")
@@ -22,22 +24,27 @@ class Advert
   private $id;
 
   /**
-   * @ORM\Column(name="date", type="datetime")
+   * @ORM\Column(name="date", type="datetime")t
+   * @Assert\dateTime()
    */
   private $date;
    
   /**
    * @ORM\Column(name="title", type="string", length=255)
+   * @Assert\length(min=10)
    */
   private $title;// unique=true pr plus tard
 
   /**
    * @ORM\Column(name="author", type="string", length=255)
+   * @Assert\length(min=2)
    */
   private $author;
 
   /**
    * @ORM\Column(name="content", type="text")
+   * @Assert\NotBlank()
+   * @Antiflood()
    */
   private $content;
 
@@ -48,6 +55,7 @@ class Advert
 
   /**
    * @ORM\OneToOne(targetEntity="OC\PlatformBundle\Entity\Image", cascade={"persist", "remove"})
+   * @Assert\Valid()
    */
   private $image;
 
