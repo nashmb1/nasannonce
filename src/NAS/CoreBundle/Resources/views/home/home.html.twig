@@ -12,18 +12,25 @@
      {% for message in app.session.flashbag.get('info') %}
         <p>Message flash : {{ message }}</p>
       {% endfor %}
-  <ul>
-    {% for advert in listAdverts %}
-      <li>
-        <a href="{{ path('oc_platform_view', {'id': advert.id}) }}">
-          {{ advert.title }}
-        </a>
-        par {{ advert.author }},
-        le {{ advert.date|date('d/m/Y') }}
-      </li>
-    {% else %}
-      <li>Pas (encore !) d'annonces</li>
-    {% endfor %}
-  </ul>
+<ul>
+	{% for advert in listAdverts %}
+
+	<li class="row form-control form-group prezlist">
+		<div class="col-md-2">
+			{% if advert.image is not null %} 
+			<img src="{{  asset(advert.image.webPath)}}" alt="{{ advert.image.alt }}" class="img-thumbnail prezimg">
+			{% endif %}
+		</div>
+		<div class="col-md-8">
+			<a href="{{ path('oc_platform_view', {'id': advert.id}) }}"> {{
+				advert.title }} </a> 
+				<br/>
+				{{ advert.author }},
+		</div>
+		<div class="col-md-2">{{ advert.date|date('d/m/Y') }}</div>
+	</li> {% else %}
+	<li>Pas (encore !) d'annonces</li> {% endfor %}
+</ul>
+      
 
 {% endblock %}

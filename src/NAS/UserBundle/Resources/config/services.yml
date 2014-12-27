@@ -1,0 +1,4 @@
+services:
+#    nas_user.example:
+#        class: NAS\UserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use OC\PlatformBundle\Form\AdvertType;
 use OC\PlatformBundle\Form\AdvertEditType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class AdvertController extends Controller {
 	public function indexAction($page) {
@@ -79,27 +80,38 @@ class AdvertController extends Controller {
 				'listAdvertSkills' => $listAdvertSkills 
 		) );
 	}
+	
+	/**
+	 * @Security("has_role('ROLE_AUTEUR')")
+	 */
 	public function addAction(Request $request) {
 		
-	
-    $advert = new Advert();
-      //On recupère le formulaire
-       $form = $this->createForm(new AdvertType(), $advert);
-    if ($form->handleRequest($request)->isValid()) {
-    	// On l'enregistre notre objet $advert dans la base de données
-    	$em = $this->getDoctrine()->getManager();
-    	$em->persist($advert);
-    	$em->flush();
-    
-    	$request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
-    
-    	// On redirige vers la page de visualisation de l'annonce nouvellement créée
-    	return $this->redirect($this->generateUrl('oc_platform_view', array('id' => $advert->getId())));
-   	  }
-		 // Si on n'est pas en POST, alors on affiche le formulaire*/
-		return $this->render ( 'OCPlatformBundle:Advert:add.html.twig', array(
-				'form'=>$form->createView()
-				));
+		/*// On vérifie que l'utilisateur dispose bien du rôle ROLE_AUTEUR
+		if (!$this->get('security.context')->isGranted('ROLE_AUTEUR')) {
+			// Sinon on déclenche une exception « Accès interdit »
+			throw new AccessDeniedException('Accès limité aux auteurs.');
+		}*/
+		
+    	$advert = new Advert ();
+		// On recupère le formulaire
+		$form = $this->createForm ( new AdvertType (), $advert );
+		if ($form->handleRequest ( $request )->isValid ()) {
+			// On l'enregistre notre objet $advert dans la base de données
+			$em = $this->getDoctrine ()->getManager ();
+			$em->persist ( $advert );
+			$em->flush ();
+			
+			$request->getSession ()->getFlashBag ()->add ( 'notice', 'Annonce bien enregistrée.' );
+			
+			// On redirige vers la page de visualisation de l'annonce nouvellement créée
+			return $this->redirect ( $this->generateUrl ( 'oc_platform_view', array (
+					'id' => $advert->getId () 
+			) ) );
+		}
+		// Si on n'est pas en POST, alors on affiche le formulaire*/
+		return $this->render ( 'OCPlatformBundle:Advert:add.html.twig', array (
+				'form' => $form->createView () 
+		) );
 	}
 	
 	public function editAction($id, Request $request) {

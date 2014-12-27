@@ -66,6 +66,10 @@ class __TwigTemplate_fec40a8da94b793825aaa7f5ae825137b6bf4984895cd0e5c0be27a904e
 \t\t\t\t\t</ul>
 \t\t\t\t\t<form class=\"navbar-form navbar-right inline-form\">
 \t\t\t\t\t\t<div class=\"form-group\">
+\t\t\t\t\t\t <a href=\"";
+        // line 38
+        echo $this->env->getExtension('routing')->getPath("login");
+        echo "\">Connexion</a>
 \t\t\t\t\t\t\t<input type=\"search\" class=\"input-sm form-control\" placeholder=\"Recherche\">
 \t\t\t\t\t\t\t<button type=\"submit\" class=\"btn btn-primary btn-sm\">
 \t\t\t\t\t\t\t\t<span class=\"glyphicon glyphicon-eye-open\"></span> Chercher
@@ -79,32 +83,36 @@ class __TwigTemplate_fec40a8da94b793825aaa7f5ae825137b6bf4984895cd0e5c0be27a904e
 \t\t\t\t<h3 class = \"couleur-verte\">Menu principal</h3>
 \t\t\t\t<ul class=\"nav nav-pills nav-stacked couleur-grise\">
 \t\t\t\t\t<li><a href=\"";
-        // line 50
+        // line 51
         echo $this->env->getExtension('routing')->getPath("nas_core_homepage");
         echo "\">Accueil</a></li>
 \t\t\t\t\t<li><a href=\"";
-        // line 51
+        // line 52
         echo $this->env->getExtension('routing')->getPath("oc_platform_home");
         echo "\">Les annonces</a></li>
 \t\t\t\t\t<li><a href=\"";
-        // line 52
+        // line 53
         echo $this->env->getExtension('routing')->getPath("oc_platform_add");
         echo "\">Ajouter une annonce</a></li>
 \t\t\t\t\t<li><a href=\"";
-        // line 53
+        // line 54
         echo $this->env->getExtension('routing')->getPath("nas_core_contact");
         echo "\">Nous contacter</a></li>
+\t\t\t\t\t<li color =\"red\"><a href=\"";
+        // line 55
+        echo $this->env->getExtension('routing')->getPath("logout");
+        echo "\">Se déconnecter</a></li>
 \t\t\t\t</ul>
 \t\t\t\t
 \t\t\t\t<h3 class = \"couleur-verte\">Dernières annonces</h3>
 \t\t\t\t<div class=\"couleur-grise\">
 \t\t\t\t";
-        // line 58
+        // line 60
         echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('http_kernel')->controller("OCPlatformBundle:Advert:menu", array("limit" => 3)));
         echo "</div>
 \t\t\t</div>
 \t\t\t<div id=\"content\" class=\"col-md-9\">";
-        // line 60
+        // line 62
         $this->displayBlock('body', $context, $blocks);
         echo "</div>
 \t\t</div>
@@ -113,16 +121,16 @@ class __TwigTemplate_fec40a8da94b793825aaa7f5ae825137b6bf4984895cd0e5c0be27a904e
 
 \t\t<footer>
 \t\t\t<p> hm.nassirou©";
-        // line 66
+        // line 68
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "now", "Y"), "html", null, true);
         echo " and beyond.</p>
 \t\t</footer>
 \t</div>
 
 \t";
-        // line 70
+        // line 72
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 77
+        // line 79
         echo "
 </body>
 </html>
@@ -150,17 +158,17 @@ class __TwigTemplate_fec40a8da94b793825aaa7f5ae825137b6bf4984895cd0e5c0be27a904e
 ";
     }
 
-    // line 60
+    // line 62
     public function block_body($context, array $blocks = array())
     {
         echo " ";
     }
 
-    // line 70
+    // line 72
     public function block_javascripts($context, array $blocks = array())
     {
         echo " ";
-        // line 72
+        // line 74
         echo "\t<script
 \t\tsrc=\"//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>
 \t<script
@@ -180,6 +188,6 @@ class __TwigTemplate_fec40a8da94b793825aaa7f5ae825137b6bf4984895cd0e5c0be27a904e
 
     public function getDebugInfo()
     {
-        return array (  164 => 72,  160 => 70,  154 => 60,  147 => 14,  143 => 12,  141 => 10,  133 => 9,  126 => 77,  124 => 70,  117 => 66,  108 => 60,  103 => 58,  95 => 53,  91 => 52,  87 => 51,  83 => 50,  64 => 34,  59 => 32,  55 => 31,  46 => 25,  36 => 17,  32 => 9,  23 => 2,);
+        return array (  172 => 74,  168 => 72,  162 => 62,  155 => 14,  151 => 12,  149 => 10,  141 => 9,  134 => 79,  132 => 72,  125 => 68,  116 => 62,  111 => 60,  103 => 55,  99 => 54,  95 => 53,  91 => 52,  87 => 51,  71 => 38,  64 => 34,  59 => 32,  55 => 31,  46 => 25,  36 => 17,  32 => 9,  23 => 2,);
     }
 }

@@ -56,46 +56,62 @@ class __TwigTemplate_56cf2315be9ed618d29cc93309918ca6569370d028a7e3ba1102b47b52e
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 15
-        echo "  <ul>
-    ";
+        echo "<ul>
+\t";
         // line 16
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["listAdverts"]) ? $context["listAdverts"] : $this->getContext($context, "listAdverts")));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["advert"]) {
             // line 17
-            echo "      <li>
-        <a href=\"";
-            // line 18
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("oc_platform_view", array("id" => $this->getAttribute($context["advert"], "id", array()))), "html", null, true);
-            echo "\">
-          ";
-            // line 19
-            echo twig_escape_filter($this->env, $this->getAttribute($context["advert"], "title", array()), "html", null, true);
             echo "
-        </a>
-        par ";
-            // line 21
+\t<li class=\"row form-control form-group prezlist\">
+\t\t<div class=\"col-md-2\">
+\t\t\t";
+            // line 20
+            if ((!(null === $this->getAttribute($context["advert"], "image", array())))) {
+                echo " 
+\t\t\t<img src=\"";
+                // line 21
+                echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl($this->getAttribute($this->getAttribute($context["advert"], "image", array()), "webPath", array())), "html", null, true);
+                echo "\" alt=\"";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["advert"], "image", array()), "alt", array()), "html", null, true);
+                echo "\" class=\"img-thumbnail prezimg\">
+\t\t\t";
+            }
+            // line 23
+            echo "\t\t</div>
+\t\t<div class=\"col-md-8\">
+\t\t\t<a href=\"";
+            // line 25
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("oc_platform_view", array("id" => $this->getAttribute($context["advert"], "id", array()))), "html", null, true);
+            echo "\"> ";
+            echo twig_escape_filter($this->env, $this->getAttribute($context["advert"], "title", array()), "html", null, true);
+            // line 26
+            echo " </a> 
+\t\t\t\t<br/>
+\t\t\t\t";
+            // line 28
             echo twig_escape_filter($this->env, $this->getAttribute($context["advert"], "author", array()), "html", null, true);
             echo ",
-        le ";
-            // line 22
+\t\t</div>
+\t\t<div class=\"col-md-2\">";
+            // line 30
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["advert"], "date", array()), "d/m/Y"), "html", null, true);
-            echo "
-      </li>
-    ";
+            echo "</div>
+\t</li> ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 25
-            echo "      <li>Pas (encore !) d'annonces</li>
-    ";
+            // line 32
+            echo "\t<li>Pas (encore !) d'annonces</li> ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['advert'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 27
-        echo "  </ul>
+        // line 33
+        echo "</ul>
+      
 
 ";
     }
@@ -112,6 +128,6 @@ class __TwigTemplate_56cf2315be9ed618d29cc93309918ca6569370d028a7e3ba1102b47b52e
 
     public function getDebugInfo()
     {
-        return array (  98 => 27,  91 => 25,  83 => 22,  79 => 21,  74 => 19,  70 => 18,  67 => 17,  62 => 16,  59 => 15,  50 => 13,  46 => 12,  42 => 10,  39 => 9,  32 => 6,  29 => 5,);
+        return array (  113 => 33,  107 => 32,  100 => 30,  95 => 28,  91 => 26,  87 => 25,  83 => 23,  76 => 21,  72 => 20,  67 => 17,  62 => 16,  59 => 15,  50 => 13,  46 => 12,  42 => 10,  39 => 9,  32 => 6,  29 => 5,);
     }
 }

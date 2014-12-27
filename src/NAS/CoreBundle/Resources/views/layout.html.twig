@@ -35,6 +35,7 @@ directement #}
 					</ul>
 					<form class="navbar-form navbar-right inline-form">
 						<div class="form-group">
+						 <a href="{{ path('login') }}">Connexion</a>
 							<input type="search" class="input-sm form-control" placeholder="Recherche">
 							<button type="submit" class="btn btn-primary btn-sm">
 								<span class="glyphicon glyphicon-eye-open"></span> Chercher
@@ -51,6 +52,7 @@ directement #}
 					<li><a href="{{ path('oc_platform_home') }}">Les annonces</a></li>
 					<li><a href="{{ path('oc_platform_add') }}">Ajouter une annonce</a></li>
 					<li><a href="{{ path('nas_core_contact') }}">Nous contacter</a></li>
+					<li color ="red"><a href="{{ path('logout') }}">Se déconnecter</a></li>
 				</ul>
 				
 				<h3 class = "couleur-verte">Dernières annonces</h3>

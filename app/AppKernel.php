@@ -14,7 +14,8 @@ class AppKernel extends Kernel {
 				new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle (),
 				new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle (),
 				new OC\PlatformBundle\OCPlatformBundle (),
-				new NAS\CoreBundle\NASCoreBundle () 
+				new NAS\CoreBundle\NASCoreBundle (),
+            new NAS\UserBundle\NASUserBundle(),
 		);
 		
 		if (in_array ( $this->getEnvironment (), array (
