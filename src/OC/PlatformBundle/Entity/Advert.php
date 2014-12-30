@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
-use OC\PlatformBundle\Validator\Antiflood;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * @ORM\Table(name = "nas_advert")
