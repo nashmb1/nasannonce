@@ -66,11 +66,29 @@ class __TwigTemplate_fec40a8da94b793825aaa7f5ae825137b6bf4984895cd0e5c0be27a904e
 \t\t\t\t\t</ul>
 \t\t\t\t\t<form class=\"navbar-form navbar-right inline-form\">
 \t\t\t\t\t\t<div class=\"form-group\">
-\t\t\t\t\t\t <a href=\"";
+                            ";
         // line 38
-        echo $this->env->getExtension('routing')->getPath("login");
-        echo "\">Connexion</a>
-\t\t\t\t\t\t\t<input type=\"search\" class=\"input-sm form-control\" placeholder=\"Recherche\">
+        if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
+            // line 39
+            echo "                               Bienvenue ";
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "username", array()), "html", null, true);
+            echo "
+                                <a href=\"";
+            // line 40
+            echo $this->env->getExtension('routing')->getPath("fos_user_security_logout");
+            echo "\">
+                                    Déconnexion
+                                </a>
+                            ";
+        } else {
+            // line 44
+            echo "                                <a href=\"";
+            echo $this->env->getExtension('routing')->getPath("fos_user_security_login");
+            echo "\">Connexion</a>
+                            ";
+        }
+        // line 46
+        echo "\t\t\t\t\t\t\t<input type=\"search\" class=\"input-sm form-control\" placeholder=\"Recherche\">
 \t\t\t\t\t\t\t<button type=\"submit\" class=\"btn btn-primary btn-sm\">
 \t\t\t\t\t\t\t\t<span class=\"glyphicon glyphicon-eye-open\"></span> Chercher
 \t\t\t\t\t\t\t</button>
@@ -83,36 +101,37 @@ class __TwigTemplate_fec40a8da94b793825aaa7f5ae825137b6bf4984895cd0e5c0be27a904e
 \t\t\t\t<h3 class = \"couleur-verte\">Menu principal</h3>
 \t\t\t\t<ul class=\"nav nav-pills nav-stacked couleur-grise\">
 \t\t\t\t\t<li><a href=\"";
-        // line 51
+        // line 58
         echo $this->env->getExtension('routing')->getPath("nas_core_homepage");
         echo "\">Accueil</a></li>
 \t\t\t\t\t<li><a href=\"";
-        // line 52
+        // line 59
         echo $this->env->getExtension('routing')->getPath("oc_platform_home");
         echo "\">Les annonces</a></li>
 \t\t\t\t\t<li><a href=\"";
-        // line 53
+        // line 60
         echo $this->env->getExtension('routing')->getPath("oc_platform_add");
         echo "\">Ajouter une annonce</a></li>
 \t\t\t\t\t<li><a href=\"";
-        // line 54
+        // line 61
         echo $this->env->getExtension('routing')->getPath("nas_core_contact");
         echo "\">Nous contacter</a></li>
-\t\t\t\t\t<li color =\"red\"><a href=\"";
-        // line 55
-        echo $this->env->getExtension('routing')->getPath("logout");
-        echo "\">Se déconnecter</a></li>
+                    <li><a href=\"";
+        // line 62
+        echo $this->env->getExtension('routing')->getPath("fos_user_registration_register");
+        echo "\">S'inscrire</a></li>
+
 \t\t\t\t</ul>
 \t\t\t\t
 \t\t\t\t<h3 class = \"couleur-verte\">Dernières annonces</h3>
 \t\t\t\t<div class=\"couleur-grise\">
 \t\t\t\t";
-        // line 60
+        // line 68
         echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('http_kernel')->controller("OCPlatformBundle:Advert:menu", array("limit" => 3)));
         echo "</div>
 \t\t\t</div>
 \t\t\t<div id=\"content\" class=\"col-md-9\">";
-        // line 62
+        // line 70
         $this->displayBlock('body', $context, $blocks);
         echo "</div>
 \t\t</div>
@@ -121,16 +140,16 @@ class __TwigTemplate_fec40a8da94b793825aaa7f5ae825137b6bf4984895cd0e5c0be27a904e
 
 \t\t<footer>
 \t\t\t<p> hm.nassirou©";
-        // line 68
+        // line 76
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "now", "Y"), "html", null, true);
         echo " and beyond.</p>
 \t\t</footer>
 \t</div>
 
 \t";
-        // line 72
+        // line 80
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 79
+        // line 87
         echo "
 </body>
 </html>
@@ -158,17 +177,17 @@ class __TwigTemplate_fec40a8da94b793825aaa7f5ae825137b6bf4984895cd0e5c0be27a904e
 ";
     }
 
-    // line 62
+    // line 70
     public function block_body($context, array $blocks = array())
     {
         echo " ";
     }
 
-    // line 72
+    // line 80
     public function block_javascripts($context, array $blocks = array())
     {
         echo " ";
-        // line 74
+        // line 82
         echo "\t<script
 \t\tsrc=\"//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>
 \t<script
@@ -188,6 +207,6 @@ class __TwigTemplate_fec40a8da94b793825aaa7f5ae825137b6bf4984895cd0e5c0be27a904e
 
     public function getDebugInfo()
     {
-        return array (  172 => 74,  168 => 72,  162 => 62,  155 => 14,  151 => 12,  149 => 10,  141 => 9,  134 => 79,  132 => 72,  125 => 68,  116 => 62,  111 => 60,  103 => 55,  99 => 54,  95 => 53,  91 => 52,  87 => 51,  71 => 38,  64 => 34,  59 => 32,  55 => 31,  46 => 25,  36 => 17,  32 => 9,  23 => 2,);
+        return array (  191 => 82,  187 => 80,  181 => 70,  174 => 14,  170 => 12,  168 => 10,  160 => 9,  153 => 87,  151 => 80,  144 => 76,  135 => 70,  130 => 68,  121 => 62,  117 => 61,  113 => 60,  109 => 59,  105 => 58,  91 => 46,  85 => 44,  78 => 40,  73 => 39,  71 => 38,  64 => 34,  59 => 32,  55 => 31,  46 => 25,  36 => 17,  32 => 9,  23 => 2,);
     }
 }

@@ -2,3 +2,12 @@ services:
 #    nas_user.example:
 #        class: NAS\UserBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+
+    acme_user.registration.form.type:
+        class: NAS\UserBundle\Form\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: nas_user_registration }
+
+
+

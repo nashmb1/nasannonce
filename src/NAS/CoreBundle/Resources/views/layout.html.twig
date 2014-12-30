@@ -35,7 +35,14 @@ directement #}
 					</ul>
 					<form class="navbar-form navbar-right inline-form">
 						<div class="form-group">
-						 <a href="{{ path('login') }}">Connexion</a>
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                               Bienvenue {{app.user.username}}
+                                <a href="{{ path('fos_user_security_logout') }}">
+                                    Déconnexion
+                                </a>
+                            {% else %}
+                                <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                            {% endif %}
 							<input type="search" class="input-sm form-control" placeholder="Recherche">
 							<button type="submit" class="btn btn-primary btn-sm">
 								<span class="glyphicon glyphicon-eye-open"></span> Chercher
@@ -52,30 +59,32 @@ directement #}
 					<li><a href="{{ path('oc_platform_home') }}">Les annonces</a></li>
 					<li><a href="{{ path('oc_platform_add') }}">Ajouter une annonce</a></li>
 					<li><a href="{{ path('nas_core_contact') }}">Nous contacter</a></li>
-					<li color ="red"><a href="{{ path('logout') }}">Se déconnecter</a></li>
+                    <li><a href="{{ path('fos_user_registration_register') }}">S'inscrire</a></li>
+
 				</ul>
-				
-				<h3 class = "couleur-verte">Dernières annonces</h3>
-				<div class="couleur-grise">
-				{{ render(controller("OCPlatformBundle:Advert:menu", {'limit': 3}))}}</div>
-			</div>
-			<div id="content" class="col-md-9">{% block body %} {% endblock %}</div>
-		</div>
 
-		<hr>
+<h3 class = "couleur-verte">Dernières annonces</h3>
+<div class="couleur-grise">
+    {{ render(controller("OCPlatformBundle:Advert:menu", {'limit': 3}))}}</div>
+</div>
+<div id="content" class="col-md-9">{% block body %} {% endblock %}</div>
+</div>
 
-		<footer>
-			<p> hm.nassirou©{{ 'now'|date('Y') }} and beyond.</p>
-		</footer>
-	</div>
+<hr>
 
-	{% block javascripts %} {# Ajoutez ces lignes JavaScript si vous
+<footer>
+    <p> hm.nassirou©{{ 'now'|date('Y') }} and beyond.</p>
+</footer>
+</div>
+
+{% block javascripts %} {# Ajoutez ces lignes JavaScript si vous
 	comptez vous servir des fonctionnalités du bootstrap Twitter #}
-	<script
-		src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script
-		src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	{% endblock %}
+    <script
+            src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script
+            src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+{% endblock %}
 
 </body>
 </html>
+g
