@@ -9,6 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\DateTime;
 
+
 /**
  * @ORM\Table(name = "nas_advert")
  * @ORM\Entity(repositoryClass="OC\PlatformBundle\Entity\AdvertRepository")
@@ -44,7 +45,7 @@ class Advert
   /**
    * @ORM\Column(name="content", type="text")
    * @Assert\NotBlank()
-   * @Antiflood()
+   *
    */
   private $content;
 

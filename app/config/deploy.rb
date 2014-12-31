@@ -30,7 +30,7 @@ set :shared_children, [app_path + "/logs", "vendor"] # Idem, mais pour les dossi
 set :writable_dirs, ["app/cache", "app/logs", "app/sessions"]
 
 
-set :update_vendors, true # Il est conseillé de laisser a false et de ne pas faire de ‘composer update’ directement sur la prod
+set :update_vendors, false # Il est conseillé de laisser a false et de ne pas faire de ‘composer update’ directement sur la prod
 set :dump_assetic_assets, true # dumper les assets
 logger.level = Logger::MAX_LEVEL
  

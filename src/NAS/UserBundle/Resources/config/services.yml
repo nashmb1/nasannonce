@@ -3,7 +3,7 @@ services:
 #        class: NAS\UserBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
 
-    acme_user.registration.form.type:
+    nas_user.registration.form.type:
         class: NAS\UserBundle\Form\RegistrationFormType
         arguments: [%fos_user.model.user.class%]
         tags:
@@ -11,3 +11,8 @@ services:
 
 
 
+  #  nas_user.registration_listener:
+   #     class: NAS\UserBundle\EventListener\RegistrationListener
+    #    arguments: []
+     #   tags:
+      #      - { name: kernel.event_subscriber }

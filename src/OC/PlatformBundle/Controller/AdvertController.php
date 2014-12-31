@@ -85,16 +85,9 @@ class AdvertController extends Controller {
 	}
 	
 	/**
-	 * @Security("has_role('ROLE_AUTEUR')")
+	 * @Security("has_role('ROLE_USER')")
 	 */
 	public function addAction(Request $request) {
-		
-		/*// On vérifie que l'utilisateur dispose bien du rôle ROLE_AUTEUR
-		if (!$this->get('security.context')->isGranted('ROLE_AUTEUR')) {
-			// Sinon on déclenche une exception « Accès interdit »
-			throw new AccessDeniedException('Accès limité aux auteurs.');
-		}*/
-		
     	$advert = new Advert ();
 		// On recupère le formulaire
 		$form = $this->createForm ( new AdvertType (), $advert );
