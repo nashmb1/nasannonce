@@ -1,0 +1,7 @@
+nas_core_homepage:
+    path:     /
+    defaults: { _controller: NASCoreBundle:Home:index }
+
+nas_core_contact:
+    path:     /contact
+    defaults: {_controller:NASCoreBundle:Home:contact}

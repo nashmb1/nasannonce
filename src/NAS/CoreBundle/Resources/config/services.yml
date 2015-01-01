@@ -1,0 +1,4 @@
+services:
+#    nas_core.example:
+#        class: NAS\CoreBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
