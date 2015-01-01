@@ -36,13 +36,15 @@ class AdvertController extends Controller {
                 throw $this->createNotFoundException("La page " . $page . " n'existe pas.");
             }
 
+        }
+        if($nbPages==0) $nbPages =1;
             // On donne toutes les informations nécessaires à la vue
             return $this->render('OCPlatformBundle:Advert:index.html.twig', array(
                 'listAdverts' => $listAdverts,
                 'nbPages' => $nbPages,
                 'page' => $page
             ));
-        }
+
     }
 	public function menuAction($limit = 3) {
 		
